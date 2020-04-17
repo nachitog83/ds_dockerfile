@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+    jupyter:
+        build: .
+        volumes:
+            - .:/root/GitProjects
+        working_dir: /root/GitProjects
+        command: jupyter lab --no-browser --ip=0.0.0.0 --allow-root --NotebookApp.token='nacho'
+        ports:
+            - 8888:8888
