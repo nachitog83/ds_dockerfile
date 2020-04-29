@@ -14,7 +14,7 @@ WORKDIR /root/
 COPY ./requirements.txt /root
 
 # Install Debian packages
-RUN apt-get -qq update && apt-get -qq -y install apt-utils autoconf automake make libtool python-dev curl git-core ca-certificates pkg-config tree bzip2
+RUN apt-get -qq update && apt-get -qq -y install apt-utils autoconf automake make libtool python-dev curl git-core ca-certificates pkg-config tree bzip2 nodejs npm
 
 # Install miniconda
 RUN curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -o /tmp/miniconda.sh \
@@ -46,7 +46,8 @@ RUN git clone https://github.com/bobbywlindsey/dotfiles.git \
 RUN jupyter contrib nbextension install --user \
     && jupyter nbextensions_configurator enable --user \
     && jupyter nbextension enable codefolding/main \
-    && jupyter nbextension enable collapsible_headings/main
+    && jupyter nbextension enable collapsible_headings/main \
+    && jupyter labextension install @jupyter-widgets/jupyterlab-manager
 
 # Add vim-binding extension
 RUN mkdir -p $(jupyter --data-dir)/nbextensions \
