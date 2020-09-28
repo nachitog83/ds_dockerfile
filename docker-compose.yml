@@ -2,10 +2,10 @@ version: '3.8'
 
 services:
     jupyter:
-        build: .
+        image: nachitog83/datascience:1.0
         volumes:
             - .:/root/GitProjects
         working_dir: /root/GitProjects
-        command: jupyter lab --no-browser --ip=0.0.0.0 --allow-root --NotebookApp.token='nacho'
+        command: jupyter lab --no-browser --ip=0.0.0.0 --allow-root --NotebookApp.token=${TOKEN}
         ports:
             - 8888:8888
