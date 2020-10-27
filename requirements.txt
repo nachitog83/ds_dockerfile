@@ -8,7 +8,7 @@ cffi==1.14.0
 chardet==3.0.4
 chart-studio==1.1.0
 click==7.1.2
-cryptography==2.8
+cryptography==3.2
 cycler==0.10.0
 dash==1.11.0
 dash-core-components==1.9.1
